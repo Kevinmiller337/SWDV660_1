@@ -1,9 +1,15 @@
-const http = require('http');
+var http = require("http")
 
-const requestListener = function (req, res) {
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end('Hello, Earth!');
-}
+http.createServer(function (request, response) {
 
-const server = http.createServer(requestListener);
-server.listen(3333);
+    // Send the HTTP header
+    // HTTP Status: 200 : OK
+    // Content Type: text/plain
+    response.writeHead(200, { 'Content-Type': 'text/plain' })
+
+    // Send the response body as "Hello Earth"
+    response.end('Hello Earth\n')
+}).listen(3333)
+
+// Console will print the message
+console.log('Server running')
